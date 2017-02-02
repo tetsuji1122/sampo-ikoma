@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
+    <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,85 +17,140 @@
     <script src="js/jquery.csv.js"></script>
     <!-- メインのjavascript -->
     <script src="js/index.js"></script>
-  	<style type="text/css">
-      html, body { height: 100%; margin: 0; padding: 0; }
-      body { padding-bottom: 70px; }
-      #map { height: 500px; }
-      #msg { position:absolute; display:none; bottom:30px;}
-      #loading {
-        width:65px; height:65px;
-        left:50%; top:50%;
-        margin:-68px 0 0 -68px;
-        padding:20px;
-        background-color: #ffffff ;
-        opacity: 0.5;
-        border-radius:15px;
-        position:fixed;
-      }
-      .center{text-align:center; padding:20px 40px;}
-      .title{max-width: 100%}
-      .icon {width: 24px ; margin:5pt;}
-    </style>
-  </head>
-  <body>
-    <!-- タブのインデックス部分 -->
-    <ul class="nav nav-tabs">
+    <style type="text/css">
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+body {
+	padding-bottom: 70px;
+}
+#map {
+	height: 500px;
+}
+#msg {
+	position: absolute;
+	display: none;
+	bottom: 30px;
+}
+#loading {
+	width: 65px;
+	height: 65px;
+	left: 50%;
+	top: 50%;
+	margin: -68px 0 0 -68px;
+	padding: 20px;
+	background-color: #ffffff;
+	opacity: 0.5;
+	border-radius: 15px;
+	position: fixed;
+}
+.center {
+	text-align: center;
+	padding: 20px 40px;
+}
+.title {
+	max-width: 100%
+}
+.icon {
+	width: 32px;
+	margin: 5pt;
+}
+.nav li {
+	background: #EEEEEE;
+	width:25%;
+	text-align:center;
+	letter-spacing:0.2em;
+}
+
+.nav li glyphicon{
+	margin:0 2px 0 0;
+
+}
+.nav .active a {
+	background: #30967c!important;
+	color: #FFFFFF!important;
+}
+.tab-content {
+	height: 100%;
+	background: url(images/top_bg.jpg) no-repeat top center;
+	background-size: cover;
+}
+#tab1 h1 {
+	padding: 50px 0;
+}
+
+#tab1 h1 img{
+	width:179px;
+	height:126px;
+}
+#tab2 {
+	background-color: #FFFFFF;
+	background-image: none;
+}
+ #tab3 p {
+	margin: 10px 0;
+}
+.list-group-item {
+	background-color: rgba(255,255,255,0.66);
+	border: none;
+	padding:8px!important;
+}
+</style>
+    </head>
+    <body>
+<!-- タブのインデックス部分 -->
+<ul class="nav nav-tabs">
       <li id="t1" class="active"><a href="#tab1" data-toggle="tab">Home</a></li>
       <li id="t2" ><a href="#tab2" data-toggle="tab" class="glyphicon glyphicon-map-marker" aria-hidden="true">Map</a></li>
       <li id="t3" ><a href="#tab3" data-toggle="tab" class="glyphicon glyphicon-info-sign" aria-hidden="true">Info</a></li>
     </ul>
-    <!-- タブのコンテンツ部分 -->
-    <div class="tab-content">
+<!-- タブのコンテンツ部分 -->
+<div class="tab-content"> 
       <!-- 1ページ目  -->
       <div class="tab-pane active center" id="tab1">
-          <h4>生駒市</h4>
-          <br/>
-          <img class="title" src="images/title.png">
-          <br/>
-          <br/>
-          <select id="sanpoTime" name="sanpoTime" class="form-control form-control-lg" onchange="changeBtnOK(this)">
-            <option value="0">さんぽする時間を選んでください…</option>
-            <option value="30">30分</option>
-            <option value="60">60分</option>
-            <option value="90">90分</option>
-            <option value="120">120分</option>
-          </select>
-      　　<button id="exebtn" class="btn btn-success btn-block btn-lg" disabled="disabled" onclick="gotoMapTab(this)">さんぽする</button>
-      </div>
+    <h1> <img class="title" src="images/id.png" alt="いこまさんぽ"> </h1>
+    <select id="sanpoTime" name="sanpoTime" class="form-control form-control-lg" onchange="changeBtnOK(this)">
+          <option value="0">さんぽする時間を選んでください…</option>
+          <option value="30">30分</option>
+          <option value="60">60分</option>
+          <option value="90">90分</option>
+          <option value="120">120分</option>
+        </select>
+    　　
+    <button id="exebtn" class="btn btn-success btn-block btn-lg" disabled="disabled" onclick="gotoMapTab(this)">さんぽする</button>
+  </div>
       <!-- 2ページ目  -->
-      <div class="tab-pane" id="tab2">
-        <!-- 地図部分 -->
-        <div id="map"></div>
-        <script async defer
+      <div class="tab-pane" id="tab2"> 
+    <!-- 地図部分 -->
+    <div id="map"></div>
+    <script async defer
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZCA0LE_6ZgxcB3Pzcr1mryDGN-TZplyI&callback=initMap">
-        </script>
-        <!-- メッセージ部分 -->
-        <div id="msg" class="alert alert-warning" role="alert"><span></span></div>
-        <!-- ナビ部分 -->
-        <nav class="navbar navbar-default navbar-fixed-bottom">
+        </script> 
+    <!-- メッセージ部分 -->
+    <div id="msg" class="alert alert-warning" role="alert"><span></span></div>
+    <!-- ナビ部分 -->
+    <nav class="navbar navbar-default navbar-fixed-bottom">
           <div class="container" style="margin:10px; vertical-align:middle;">
-            <button type="button" class="btn btn-primary glyphicon glyphicon-refresh" onclick="reroute()">別の道</button>
-            <input type="checkbox" data-toggle="toggle" data-on="ON" data-off="OFF" data-size="normal" onchange="toilet(this)">トイレ
-            <span class="pull-right">
-              <span id="distance" style="font-size:18pt">0</span>km (<span id="time">0</span>分)
-            </span>
-          </div>
+        <button type="button" class="btn btn-primary glyphicon glyphicon-refresh" onclick="reroute()">別の道</button>
+        <input type="checkbox" data-toggle="toggle" data-on="ON" data-off="OFF" data-size="normal" onchange="toilet(this)">
+        トイレ <span class="pull-right"> <span id="distance" style="font-size:18pt">0</span>km (<span id="time">0</span>分) </span> </div>
         </nav>
-        <!--　ローディング -->
-        <div id="loading"><img src="images/gif-load.gif"></div>
-      </div>
+    <!--　ローディング -->
+    <div id="loading"><img src="images/gif-load.gif"></div>
+  </div>
       <!-- 3ページ目  -->
       <div class="tab-pane center" id="tab3">
-        <p>データ提供：<a target="info" href="http://www.city.ikoma.lg.jp/opendata/0opendata_1.html">生駒市</a></p>
-        生駒市のオープンデータを利用しています
-        <ul class="list-group" style="text-align:left;">
-          <li class="list-group-item"><img class="icon" src="images/th_point.png">総合・地区・近隣公園</li>
-          <li class="list-group-item"><img class="icon" src="images/th_tatsuta.png">たつた揚げプロジェクト</li>
-          <li class="list-group-item"><img class="icon" src="images/th_water.png">水飲み場・給水スポット</li>
-          <li class="list-group-item"><img class="icon" src="images/th_toilet.png">生駒おでかけトイレマップ(多機能型）</li>
+    <p>データ提供：<a target="info" href="http://www.city.ikoma.lg.jp/opendata/0opendata_1.html">生駒市</a></p>
+    <p>生駒市のオープンデータを利用しています</p>
+    <ul class="list-group" style="text-align:left;">
+          <li class="list-group-item"><img class="icon" src="images/th_point.png" alt="">総合・地区・近隣公園</li>
+          <li class="list-group-item"><img class="icon" src="images/th_tatsuta.png" alt="">たつた揚げプロジェクト</li>
+          <li class="list-group-item"><img class="icon" src="images/th_water.png" alt="">水飲み場・給水スポット</li>
+          <li class="list-group-item"><img class="icon" src="images/th_toilet.png" alt="">生駒おでかけトイレマップ(多機能型）</li>
         </ul>
-        <img src="images/ccby.png">
-      </div>
+    <img src="images/ccby.png" alt="著作権表示"> </div>
     </div>
-  </body>
+</body>
 </html>
