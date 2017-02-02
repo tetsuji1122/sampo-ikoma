@@ -364,25 +364,25 @@ function toIcon(row) {
     url: 'images/th_point.png',
     size: new google.maps.Size(48, 48),
     origin: new google.maps.Point(0, 0),
-    anchor: new google.maps.Point(0, 0)
+    anchor: new google.maps.Point(24, 48)
   };
   var pin_red = {
     url: 'images/th_toilet.png',
     size: new google.maps.Size(48, 48),
     origin: new google.maps.Point(0, 0),
-    anchor: new google.maps.Point(0, 0)
+    anchor: new google.maps.Point(24, 48)
   };
   var pin_gray = {
     url: 'images/th_water.png',
     size: new google.maps.Size(48, 48),
     origin: new google.maps.Point(0, 0),
-    anchor: new google.maps.Point(0, 0)
+    anchor: new google.maps.Point(24, 48)
   };
   var pin_gold = {
     url: 'images/th_tatsuta.png',
     size: new google.maps.Size(48, 48),
     origin: new google.maps.Point(0, 0),
-    anchor: new google.maps.Point(0, 0)
+    anchor: new google.maps.Point(24, 48)
   };
   //ピンの色を判断
   var pin = pin_blue;
